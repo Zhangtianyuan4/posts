@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<div id="dv" style="height:200px"></div>
+
+<script type="text/javascript">
+    function getCurrentDate() {
+        var now = new Date();
+        var hour = now.getHours();//得到小时
+        return hour;
+    }
+
+    var arrImg = ['posts/Basket-6pm.jpg', 'posts/Cycle-8pm.jpg', 'posts/Volley-11am.jpg'];
+    window.onload = function (){
+        hour = getCurrentDate();
+        if(hour <= 10)
+            index = 2;
+        else if(hour >11 && hour <= 17)
+            index = 0;
+        else
+            index = 1;
+        var l = arrImg.length;
+        if (index >= l) index = 0;
+        var bigImg = document.createElement("img");
+        bigImg.src= arrImg[index];
+        var myDiv = document.getElementById('myDiv');
+        myDiv.appendChild(bigImg);
+    };
+</script>
+</head>
+<body>
+<div id="myDiv" style="border:1px solid #eee;width:320px;height:160px;"></div>
+
+</body>
+</html>
